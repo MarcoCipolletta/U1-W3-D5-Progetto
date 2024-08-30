@@ -8,8 +8,9 @@ REGOLE
 */
 
 // JS Basics
-
+console.log(" ");
 console.log("_______________JS Basics______________");
+console.log(" ");
 
 /* ESERCIZIO A
   Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
@@ -66,7 +67,9 @@ me.skills.pop();
 
 // Funzioni
 
+console.log(" ");
 console.log("_______________Funzioni_______________");
+console.log(" ");
 
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
@@ -292,34 +295,83 @@ Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
+console.log(" ");
+console.log("_______________DOM______________");
+console.log(" ");
+
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+
+const getContainerElement = () => {
+  const container = document.getElementById("container");
+  return container;
+};
+const containerElement = getContainerElement();
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+const getTdElement = () => {
+  const allTd = document.querySelectorAll("td");
+  return allTd;
+};
+
+const tdElements = getTdElement();
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+const printTdContent = () => {
+  tdElements.forEach((element) => console.log("Questo è il contenuto di un <td> =>        ", element.innerText));
+};
+printTdContent();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const addBckgrToA = () => {
+  const allA = document.querySelectorAll("a");
+  allA.forEach((a) => (a.style.backgroundColor = "#99ff66"));
+};
+
+addBckgrToA();
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const addLi = () => {
+  const ul = document.getElementById("myList");
+  const li = document.createElement("li");
+  li.innerText = "questo l'ho aggiunto con javascript";
+  ul.appendChild(li);
+};
+addLi();
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const emptyUl = () => {
+  const ul = document.getElementById("myList");
+  ul.innerHTML = "";
+};
+
+// scrivere in console "emptyUl()" in modo da vedere il funzionamento in tempo reale
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 
+const addClassToTr = () => {
+  const allTr = document.querySelectorAll("tr");
+  allTr.forEach((tag) => tag.classList.add("test"));
+};
+addClassToTr();
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
@@ -453,6 +505,10 @@ const movies = [
     Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
   }
 ];
+
+console.log(" ");
+console.log("_______________Arrays & Oggetti______________");
+console.log(" ");
 
 //12)___________________
 
