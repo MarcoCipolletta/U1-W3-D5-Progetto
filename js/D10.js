@@ -245,36 +245,50 @@ console.log(deleteProp(me2, "age"));
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 
-//___________________SCORRI SOTTO ⬇️
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 13
-  Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 14
-  Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 15
-  Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotti nel millennio scorso contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotti nel millennio scorso contenuti nell'array "movies" fornito.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 16
-  Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 17
-  Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
+Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 /* ESERCIZIO 18
-  Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
-  "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
+Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
+"match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
+
 /* ESERCIZIO 19
-  Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
+Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+//⬇️⬇️⬇️⬇️⬇️SCORRI SOTTO ⬇️⬇️⬇️⬇️⬇️
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -440,7 +454,7 @@ const movies = [
   }
 ];
 
-//12)
+//12)___________________
 
 const newestMovie = (arr) => {
   let year = -Infinity;
@@ -457,23 +471,23 @@ const newestMovie = (arr) => {
 
 console.log("Il film più nuovo è => ", newestMovie(movies));
 
-//13)
+//13)___________________
 
 const countMovies = (arr) => arr.length;
 console.log("Ci sono =>", countMovies(movies), "film");
 
-//14)
+//14)___________________
 
 const onlyTheYears = (arr) => arr.map((obj) => obj.Year);
 const allTheYears = onlyTheYears(movies);
 console.log(allTheYears);
 
-//15)
+//15)___________________
 
 const onlyInLastMillennium = (arr) => arr.filter((obj) => obj.Year < 2000);
 console.log(onlyInLastMillennium(movies));
 
-//16)
+//16)___________________
 
 const sumAllTheYears = (arr) => {
   const arrOfNumb = arr.map((str) => parseInt(str));
@@ -482,7 +496,7 @@ const sumAllTheYears = (arr) => {
 };
 console.log(sumAllTheYears(allTheYears));
 
-//17)
+//17)___________________
 
 const searchByTitle = (str) => {
   return movies.filter((obj) => obj.Title.includes(str));
@@ -490,4 +504,34 @@ const searchByTitle = (str) => {
 
 console.log(searchByTitle("gers"));
 
-//18)
+//18)___________________
+
+const searchAndDivide = (str) => {
+  let films = {
+    match: [],
+    unmatch: []
+  };
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.includes(str)) {
+      films.match.push(movies[i]);
+    } else {
+      films.unmatch.push(movies[i]);
+    }
+  }
+  return films;
+};
+
+console.log(searchAndDivide("Avengers"));
+
+//19)___________________
+
+const removeIndex = (n) => {
+  if (n < movies.length) {
+    movies.splice(n, 1);
+    return movies;
+  } else {
+    alert("il numero inserito non è valido");
+  }
+};
+
+console.log(removeIndex(7));
