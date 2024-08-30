@@ -372,7 +372,12 @@ const addClassToTr = () => {
   allTr.forEach((tag) => tag.classList.add("test"));
 };
 addClassToTr();
+
 // [EXTRA] JS Avanzato
+
+console.log(" ");
+console.log("_______________EXTRA______________");
+console.log(" ");
 
 /* ESERCIZIO 27
   Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
@@ -385,6 +390,18 @@ addClassToTr();
   ***
 
 */
+const halfTree = (n) => {
+  let star = "*";
+  let tree = "";
+  for (let i = 0; i < n; i++) {
+    tree += star;
+    console.log(tree);
+  }
+};
+
+halfTree(5);
+
+console.log(" ");
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -398,9 +415,46 @@ addClassToTr();
 
 */
 
+const tree = (n) => {
+  for (let i = 0; i < n; i++) {
+    let stars = "";
+    let spaces = "";
+    let tree = "";
+
+    for (let j = 0; j < n - i - 1; j++) {
+      spaces += " ";
+    }
+
+    for (let k = 0; k < 2 * i + 1; k++) {
+      stars += "*";
+    }
+    tree = spaces + stars;
+    console.log(tree);
+  }
+};
+
+tree(5);
+
+console.log();
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+const isItPrime = (n) => {
+  if (n <= 1) return false;
+  if (n === 2) return true;
+  if (n % 2 === 0) return false;
+
+  for (let i = 3; i < n / 2; i += 2) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+console.log("97 è un numero primo? ", isItPrime(97));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
