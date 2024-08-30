@@ -34,6 +34,9 @@ const me = {
   surname: "Cipolletta",
   age: 25
 };
+
+const me2 = structuredClone(me); //mi serve per l' ESERCIZIO 11
+
 console.log("Esercizio C  =>", me);
 
 /* ESERCIZIO D
@@ -231,9 +234,18 @@ console.log(isTodayMyBirthday("11-08"));
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
 
+const deleteProp = (obj, str) => {
+  delete obj[str];
+  return obj;
+};
+
+console.log(deleteProp(me2, "age"));
+
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+
+//___________________SCORRI SOTTO ⬇️
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -244,7 +256,7 @@ console.log(isTodayMyBirthday("11-08"));
 */
 
 /* ESERCIZIO 15
-  Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
+  Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotti nel millennio scorso contenuti nell'array "movies" fornito.
 */
 
 /* ESERCIZIO 16
@@ -427,3 +439,55 @@ const movies = [
     Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
   }
 ];
+
+//12)
+
+const newestMovie = (arr) => {
+  let year = -Infinity;
+  let film = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].Year > year) {
+      year = arr[i].Year;
+      film = arr[i].Title;
+    }
+  }
+  return film;
+};
+
+console.log("Il film più nuovo è => ", newestMovie(movies));
+
+//13)
+
+const countMovies = (arr) => arr.length;
+console.log("Ci sono =>", countMovies(movies), "film");
+
+//14)
+
+const onlyTheYears = (arr) => arr.map((obj) => obj.Year);
+const allTheYears = onlyTheYears(movies);
+console.log(allTheYears);
+
+//15)
+
+const onlyInLastMillennium = (arr) => arr.filter((obj) => obj.Year < 2000);
+console.log(onlyInLastMillennium(movies));
+
+//16)
+
+const sumAllTheYears = (arr) => {
+  const arrOfNumb = arr.map((str) => parseInt(str));
+  console.log(arrOfNumb);
+  return arrOfNumb.reduce((acc, total) => acc + total, 0);
+};
+console.log(sumAllTheYears(allTheYears));
+
+//17)
+
+const searchByTitle = (str) => {
+  return movies.filter((obj) => obj.Title.includes(str));
+};
+
+console.log(searchByTitle("gers"));
+
+//18)
