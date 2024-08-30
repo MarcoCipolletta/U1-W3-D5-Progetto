@@ -63,13 +63,28 @@ me.skills.pop();
 
 // Funzioni
 
+console.log("_______________Funzioni_______________");
+
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
 
+const dice = () => Math.ceil(Math.random() * 6);
+
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
+
+const whoIsBigger = (a, b) => {
+  if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  } else {
+    return "sono uguali";
+  }
+};
+console.log(" il maggiore è => ", whoIsBigger(7, 4));
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
@@ -77,10 +92,31 @@ me.skills.pop();
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 
+const splitMe = (str) => {
+  const arr = str.split(" ");
+  return arr.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+};
+console.log('da "ciao come stai" a =>', splitMe("ciao come stai"));
+
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+
+const deleteOne = (str, boolean) => {
+  if (boolean) {
+    const arr = str.split("");
+    arr.shift();
+    return arr.join("");
+  } else {
+    const arr = str.split("");
+    arr.pop();
+    return arr.join("");
+  }
+};
+
+console.log("il cielo è blu , true =>", deleteOne("il cielo è blu", true));
+console.log("il cielo è blu , false =>", deleteOne("il cielo è blu", false));
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -88,13 +124,41 @@ me.skills.pop();
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+const onlyLetters = (str) => {
+  const arr = str.split("");
+
+  const newArr = arr.filter((str) => isNaN(parseInt(str)));
+  return newArr.join("");
+};
+console.log('Prima è "ciao ho 3 gatti" poi =>', onlyLetters("ciao ho 3 gatti"));
+// console.log( parseInt(""));
+// console.log( isNaN(parseInt("s")));
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
+const isThisAnEmail = (str) => {
+  const atIndex = str.indexOf("@");
+  const dotIndex = str.indexOf(".", atIndex);
+
+  return (
+    atIndex > 0 /* verifico che ci siano dei caratteri prima della @ */ &&
+    dotIndex > atIndex + 1 /*deve esserci un . almeno dopo un carattere dopo la @*/ &&
+    dotIndex < str.length - 1 /*il . non deve essere l'ultimo carattere della stringa */
+  );
+};
+console.log("marco@cipo.it è un emali =>", isThisAnEmail("marco@cipo.it"));
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+const whatDayIsIt = () => {
+  const date = new Date();
+  return date.getDate();
+};
+
+console.log(whatDayIsIt());
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -109,13 +173,54 @@ me.skills.pop();
   }
 */
 
+const rollTheDices = (num) => {
+  let sum = 0;
+  const sumAndNumbers = {
+    sum: 0,
+    values: []
+  };
+  for (let i = 0; i < num; i++) {
+    const drawnNumber = dice();
+    sum += drawnNumber;
+    sumAndNumbers.sum = sum;
+    sumAndNumbers.values.push(drawnNumber);
+  }
+  return sumAndNumbers;
+};
+console.log("tira 4 dadi => ", rollTheDices(4));
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
+const howManyDays = (inputDate) => {
+  const pastDate = new Date(inputDate);
+  const today = new Date();
+
+  const timeDifference = today - pastDate;
+
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+  return daysDifference;
+};
+
+console.log("quanti giorni sono passati dal 23 agosto 2024 =>", howManyDays("08-23-24"));
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+const isTodayMyBirthday = (myBirthday) => {
+  const now = new Date();
+  const getMonth = now.getMonth() + 1;
+  const getDay = now.getDate();
+  const Month = getMonth.toString().padStart(2, "0");
+  const Day = getDay.toString().padStart(2, "0");
+  const today = `${Month}-${Day}`;
+  return today === myBirthday;
+};
+
+console.log(isTodayMyBirthday("11-08"));
 
 // Arrays & Oggetti
 
