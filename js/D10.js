@@ -9,7 +9,7 @@ REGOLE
 
 // JS Basics
 console.log(" ");
-console.log("_______________JS Basics______________");
+console.log("_______________JS Basics______________"); // uso questo per aiutarmi a leggere meglio nella console
 console.log(" ");
 
 /* ESERCIZIO A
@@ -159,11 +159,21 @@ console.log("marco@cipo.it è un emali =>", isThisAnEmail("marco@cipo.it"));
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+
+// const whatDayIsIt = () => {
+//   const date = new Date();
+//   return date.getDate();
+// };
+// console.log(whatDayIsIt());
+
+//sono le 17 di sabato 31 agosto e mi è venuto il flash che avevo sbagliato questo esercizio 😅
+
+const dayOfWeek = ["domenica", "lunedi", "martedì", "mercoledi", "giovedi", "venerdi", "sabato"];
+
 const whatDayIsIt = () => {
   const date = new Date();
-  return date.getDate();
+  return dayOfWeek[date.getDay()];
 };
-
 console.log(whatDayIsIt());
 
 /* ESERCIZIO 8
