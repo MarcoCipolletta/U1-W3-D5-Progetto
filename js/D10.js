@@ -8,23 +8,18 @@ REGOLE
 */
 
 // JS Basics
-console.log(" ");
-console.log("_______________JS Basics______________"); // uso questo per aiutarmi a leggere meglio nella console
-console.log(" ");
 
 /* ESERCIZIO A
   Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
 */
 
 const sum = 10 + 20;
-console.log("Esercizio A => sum=" + sum);
 
 /* ESERCIZIO B
   Crea una variabile chiamata "random" e assegnaci un numero casuale tra 0 e 20 (deve essere generato dinamicamente a ogni esecuzione).
 */
 
 const random = Math.floor(Math.random() * 20);
-console.log("Esercizio B  =>", random);
 
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
@@ -37,8 +32,6 @@ const me = {
 };
 
 const me2 = structuredClone(me); //mi serve per l' ESERCIZIO 11
-
-console.log("Esercizio C  =>", me);
 
 /* ESERCIZIO D
   Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
@@ -57,7 +50,6 @@ me.skills = ["HTML", "JavaScript", "CSS"];
 */
 
 me.skills.push("Java");
-console.log("Esercizio F  =>", me.skills);
 
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
@@ -66,10 +58,6 @@ console.log("Esercizio F  =>", me.skills);
 me.skills.pop();
 
 // Funzioni
-
-console.log(" ");
-console.log("_______________Funzioni_______________");
-console.log(" ");
 
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
@@ -252,8 +240,6 @@ const deleteProp = (obj, str) => {
   return obj;
 };
 
-console.log(deleteProp(me2, "age"));
-
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
@@ -342,10 +328,6 @@ const removeIndex = (n) => {
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
-console.log(" ");
-console.log("_______________DOM______________");
-console.log(" ");
-
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
@@ -422,10 +404,6 @@ addClassToTr();
 
 // [EXTRA] JS Avanzato
 
-console.log(" ");
-console.log("_______________EXTRA______________");
-console.log(" ");
-
 /* ESERCIZIO 27
   Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
 
@@ -447,8 +425,6 @@ const halfTree = (n) => {
 };
 
 halfTree(5);
-
-console.log(" ");
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -481,8 +457,6 @@ const tree = (n) => {
 };
 
 tree(5);
-
-console.log();
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
@@ -606,10 +580,6 @@ const movies = [
     Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
   }
 ];
-
-console.log(" ");
-console.log("_______________Arrays & Oggetti______________");
-console.log(" ");
 
 //12)___________________
 
